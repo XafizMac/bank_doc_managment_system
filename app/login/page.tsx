@@ -33,9 +33,9 @@ export default function LoginPage() {
           <div className="inline-block rounded-full bg-primary/10 p-3">
             <FileCheck className="h-10 w-10 text-primary" />
           </div>
-          <h1 className="text-2xl font-bold">Welcome to BankDocs</h1>
+          <h1 className="text-2xl font-bold">Добро пожаловать в BankDocs</h1>
           <p className="text-muted-foreground">
-            Sign in to access your document management system
+            Войдите в систему, чтобы получить доступ к вашей системе управления документами
           </p>
         </div>
 

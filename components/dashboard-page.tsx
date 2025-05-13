@@ -1,21 +1,38 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  FileText, 
-  FilePlus, 
-  Clock, 
-  AlertCircle, 
-  CheckCircle, 
-  Users, 
+  FileText,
+  FilePlus,
+  Clock,
+  AlertCircle,
+  CheckCircle,
+  Users,
   Building2,
   FileCheck,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 
-import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+} from "recharts";
 import { RecentActivity } from "@/components/recent-activity";
 import Link from "next/link";
 
@@ -30,12 +47,12 @@ const documentStats = [
 ];
 
 const monthlyDocuments = [
-  { name: "Jan", documents: 45 },
-  { name: "Feb", documents: 52 },
-  { name: "Mar", documents: 49 },
-  { name: "Apr", documents: 62 },
-  { name: "May", documents: 55 },
-  { name: "Jun", documents: 68 },
+  { name: "Янв", documents: 45 },
+  { name: "Фев", documents: 52 },
+  { name: "Март", documents: 49 },
+  { name: "Апр", documents: 62 },
+  { name: "Май", documents: 55 },
+  { name: "Июнь", documents: 68 },
 ];
 
 export function DashboardPage() {
@@ -46,85 +63,93 @@ export function DashboardPage() {
   return (
     <div className="flex-1 space-y-4 p-4 pt-6 md:p-8">
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Панель</h2>
         <div className="flex items-center gap-2">
           <Button asChild>
             <Link href="/documents/create">
               <FilePlus className="mr-2 h-4 w-4" />
-              New Document
+              Новый документ
             </Link>
           </Button>
         </div>
       </div>
-      
+
       <Tabs defaultValue="overview" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="pending">Pending Tasks</TabsTrigger>
-          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="overview">Обзор</TabsTrigger>
+          <TabsTrigger value="pending">Отложенные задачи</TabsTrigger>
+          <TabsTrigger value="analytics">Аналитика</TabsTrigger>
         </TabsList>
-        
+
         <TabsContent value="overview" className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Documents</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Общее количество документов
+                </CardTitle>
                 <FileText className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">1,284</div>
                 <p className="text-xs text-muted-foreground">
-                  +12.5% from last month
+                  +12.5% с прошлого месяца
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Pending Review</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Ожидающий рассмотрения
+                </CardTitle>
                 <Clock className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">8</div>
                 <p className="text-xs text-muted-foreground">
-                  3 require urgent attention
+                  3 требуют срочного внимания
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Clients</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Активные клиенты
+                </CardTitle>
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">342</div>
                 <p className="text-xs text-muted-foreground">
-                  +4 new this week
+                  +4 новое на этой неделе
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Active Branches</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Активные филиалы
+                </CardTitle>
                 <Building2 className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">12</div>
                 <p className="text-xs text-muted-foreground">
-                  All branches operational
+                  Все филиалы работают
                 </p>
               </CardContent>
             </Card>
           </div>
-          
+
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
             <Card className="lg:col-span-4">
               <CardHeader>
-                <CardTitle>Monthly Document Activity</CardTitle>
+                <CardTitle>Ежемесячная работа с документами</CardTitle>
                 <CardDescription>
-                  Number of documents processed per month
+                  Количество обрабатываемых документов в месяц
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -140,12 +165,12 @@ export function DashboardPage() {
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card className="lg:col-span-3">
               <CardHeader>
-                <CardTitle>Document Status</CardTitle>
+                <CardTitle>Статус документа</CardTitle>
                 <CardDescription>
-                  Current status of all documents
+                  Текущий статус всех документов
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex justify-center">
@@ -165,8 +190,11 @@ export function DashboardPage() {
                           <Cell key={`cell-${index}`} fill={entry.color} />
                         ))}
                       </Pie>
-                      <Tooltip 
-                        formatter={(value, name) => [`${value} documents`, name]} 
+                      <Tooltip
+                        formatter={(value, name) => [
+                          `${value} документы`,
+                          name,
+                        ]}
                       />
                       <Legend />
                     </PieChart>
@@ -175,58 +203,56 @@ export function DashboardPage() {
               </CardContent>
             </Card>
           </div>
-          
+
           <Card>
             <CardHeader>
-              <CardTitle>Recent Activity</CardTitle>
-              <CardDescription>
-                Latest activity in the system
-              </CardDescription>
+              <CardTitle>Недавняя активность</CardTitle>
+              <CardDescription>Последние действия в системе</CardDescription>
             </CardHeader>
             <CardContent>
               <RecentActivity />
             </CardContent>
           </Card>
         </TabsContent>
-        
+
         <TabsContent value="pending" className="space-y-4">
           <div className="grid gap-4 grid-cols-1">
             <Card>
               <CardHeader>
-                <CardTitle>Documents Awaiting Your Action</CardTitle>
+                <CardTitle>Документы, Ожидающие Вашего Решения</CardTitle>
                 <CardDescription>
-                  These documents require your review or approval
+                  Эти документы требуют вашего рассмотрения или одобрения
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="grid gap-4 md:grid-cols-2">
-                    <PendingDocumentCard 
+                    <PendingDocumentCard
                       title="Loan Agreement #12345"
                       client="Johnson Enterprises"
                       timeRemaining="1 day"
                       status="urgent"
                     />
-                    <PendingDocumentCard 
+                    <PendingDocumentCard
                       title="Credit Assessment #89012"
                       client="Smith Family Trust"
                       timeRemaining="2 days"
                       status="normal"
                     />
-                    <PendingDocumentCard 
+                    <PendingDocumentCard
                       title="Mortgage Contract #56789"
                       client="Emily Parker"
                       timeRemaining="5 hours"
                       status="urgent"
                     />
-                    <PendingDocumentCard 
+                    <PendingDocumentCard
                       title="Client Onboarding #45678"
                       client="Tech Solutions Inc."
                       timeRemaining="3 days"
                       status="normal"
                     />
                   </div>
-                  
+
                   <div className="flex justify-center">
                     <Button variant="outline" asChild>
                       <Link href="/documents/inbox">
@@ -240,7 +266,7 @@ export function DashboardPage() {
             </Card>
           </div>
         </TabsContent>
-        
+
         <TabsContent value="analytics" className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2">
             <Card>
@@ -266,14 +292,16 @@ export function DashboardPage() {
                     >
                       <XAxis type="number" unit=" days" />
                       <YAxis dataKey="department" type="category" width={80} />
-                      <Tooltip formatter={(value) => [`${value} days`, "Avg. Time"]} />
+                      <Tooltip
+                        formatter={(value) => [`${value} days`, "Avg. Time"]}
+                      />
                       <Bar dataKey="time" fill="hsl(var(--primary))" />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader>
                 <CardTitle>Approval Rate by Branch</CardTitle>
@@ -295,7 +323,9 @@ export function DashboardPage() {
                     >
                       <XAxis dataKey="branch" />
                       <YAxis domain={[80, 100]} unit="%" />
-                      <Tooltip formatter={(value) => [`${value}%`, "Approval Rate"]} />
+                      <Tooltip
+                        formatter={(value) => [`${value}%`, "Approval Rate"]}
+                      />
                       <Bar dataKey="rate" fill="#10B981" />
                     </BarChart>
                   </ResponsiveContainer>
@@ -309,15 +339,26 @@ export function DashboardPage() {
   );
 }
 
-function PendingDocumentCard({ title, client, timeRemaining, status }: { 
-  title: string; 
-  client: string; 
+function PendingDocumentCard({
+  title,
+  client,
+  timeRemaining,
+  status,
+}: {
+  title: string;
+  client: string;
   timeRemaining: string;
   status: "urgent" | "normal";
 }) {
   return (
     <div className="flex items-start space-x-4 rounded-lg border p-4">
-      <div className={`mt-0.5 rounded-full p-1 ${status === "urgent" ? "bg-red-100 text-red-600 dark:bg-red-900/20 dark:text-red-400" : "bg-amber-100 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"}`}>
+      <div
+        className={`mt-0.5 rounded-full p-1 ${
+          status === "urgent"
+            ? "bg-red-100 text-red-600 dark:bg-red-900/20 dark:text-red-400"
+            : "bg-amber-100 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
+        }`}
+      >
         {status === "urgent" ? (
           <AlertCircle className="h-4 w-4" />
         ) : (
@@ -326,7 +367,7 @@ function PendingDocumentCard({ title, client, timeRemaining, status }: {
       </div>
       <div className="flex-1 space-y-1">
         <p className="font-medium leading-none">{title}</p>
-        <p className="text-sm text-muted-foreground">Client: {client}</p>
+        <p className="text-sm text-muted-foreground">Клиент: {client}</p>
         <div className="flex items-center pt-2">
           <Clock className="mr-1 h-3 w-3 text-muted-foreground" />
           <span className="text-xs text-muted-foreground">
@@ -335,7 +376,7 @@ function PendingDocumentCard({ title, client, timeRemaining, status }: {
         </div>
       </div>
       <Button variant="secondary" size="sm">
-        Review
+        Обзор
       </Button>
     </div>
   );
@@ -350,28 +391,25 @@ function LandingPage() {
             <FileCheck className="h-12 w-12 text-primary" />
           </div>
         </div>
-        
+
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
           Electronic Document Management System
         </h1>
-        
+
         <p className="text-xl text-muted-foreground">
-          Streamline your banking document workflows with our secure, efficient, and compliant document management system.
+          Streamline your banking document workflows with our secure, efficient,
+          and compliant document management system.
         </p>
-        
+
         <div className="flex flex-wrap justify-center gap-4">
           <Button size="lg" asChild>
-            <Link href="/login">
-              Get Started
-            </Link>
+            <Link href="/login">Get Started</Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <Link href="/help">
-              Learn More
-            </Link>
+            <Link href="/help">Learn More</Link>
           </Button>
         </div>
-        
+
         <div className="grid gap-6 pt-8 md:grid-cols-3">
           <div className="rounded-lg p-4">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
@@ -382,7 +420,7 @@ function LandingPage() {
               Create, review, and approve documents with a streamlined workflow.
             </p>
           </div>
-          
+
           <div className="rounded-lg p-4">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
               <Users className="h-5 w-5 text-primary" />
@@ -392,14 +430,15 @@ function LandingPage() {
               Manage client information and associated documents in one place.
             </p>
           </div>
-          
+
           <div className="rounded-lg p-4">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
               <CheckCircle className="h-5 w-5 text-primary" />
             </div>
             <h3 className="text-lg font-medium">Compliance Ready</h3>
             <p className="text-sm text-muted-foreground">
-              Built with banking regulations and compliance requirements in mind.
+              Built with banking regulations and compliance requirements in
+              mind.
             </p>
           </div>
         </div>

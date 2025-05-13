@@ -72,24 +72,24 @@ export default function CreateDocumentPage() {
   return (
     <div className="flex-1 space-y-4 p-4 pt-6 md:p-8">
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold tracking-tight">Create New Document</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Создать новый документ</h2>
       </div>
       
       <Card>
         <form onSubmit={handleSubmit}>
           <CardHeader>
-            <CardTitle>Document Details</CardTitle>
+            <CardTitle>Сведения о документе</CardTitle>
             <CardDescription>
-              Enter the details of the new document to create
+             Введите сведения о новом документе, который нужно создать
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="title">Document Title</Label>
+                <Label htmlFor="title">Название документа</Label>
                 <Input 
                   id="title" 
-                  placeholder="Enter title"
+                  placeholder="Введите название"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
@@ -97,68 +97,68 @@ export default function CreateDocumentPage() {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="type">Document Type</Label>
+                <Label htmlFor="type">Тип документа</Label>
                 <Select value={documentType} onValueChange={setDocumentType} required>
                   <SelectTrigger id="type">
-                    <SelectValue placeholder="Select type" />
+                    <SelectValue placeholder="Выбрать тип" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="loan-agreement">Loan Agreement</SelectItem>
-                    <SelectItem value="credit-assessment">Credit Assessment</SelectItem>
-                    <SelectItem value="mortgage-contract">Mortgage Contract</SelectItem>
-                    <SelectItem value="client-onboarding">Client Onboarding</SelectItem>
-                    <SelectItem value="annual-report">Annual Report</SelectItem>
-                    <SelectItem value="audit-report">Audit Report</SelectItem>
-                    <SelectItem value="employee-contract">Employee Contract</SelectItem>
-                    <SelectItem value="service-agreement">Service Agreement</SelectItem>
+                    <SelectItem value="loan-agreement">Кредитный договор</SelectItem>
+                    <SelectItem value="credit-assessment">Оценка кредитоспособности</SelectItem>
+                    <SelectItem value="mortgage-contract">Ипотечный договор</SelectItem>
+                    <SelectItem value="client-onboarding">Адаптация клиента</SelectItem>
+                    <SelectItem value="annual-report">Годовой отчет</SelectItem>
+                    <SelectItem value="audit-report">Аудиторский отчет</SelectItem>
+                    <SelectItem value="employee-contract">Трудовой договор с работником</SelectItem>
+                    <SelectItem value="service-agreement">Соглашение об обслуживании</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="client">Client</Label>
+                <Label htmlFor="client">Клиент</Label>
                 <Select value={client} onValueChange={setClient} required>
                   <SelectTrigger id="client">
-                    <SelectValue placeholder="Select client" />
+                    <SelectValue placeholder="Выбрать Клиент" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="johnson-enterprises">Johnson Enterprises</SelectItem>
-                    <SelectItem value="smith-family-trust">Smith Family Trust</SelectItem>
-                    <SelectItem value="emily-parker">Emily Parker</SelectItem>
-                    <SelectItem value="tech-solutions-inc">Tech Solutions Inc.</SelectItem>
-                    <SelectItem value="global-finance-corp">Global Finance Corp</SelectItem>
-                    <SelectItem value="internal">Internal</SelectItem>
-                    <SelectItem value="hr-department">HR Department</SelectItem>
-                    <SelectItem value="cloud-systems-ltd">Cloud Systems Ltd</SelectItem>
+                    <SelectItem value="johnson-enterprises">Джонсон Энтерпрайзис"</SelectItem>
+                    <SelectItem value="smith-family-trust">Семейный фонд Смитов</SelectItem>
+                    <SelectItem value="emily-parker">Эмили Паркер</SelectItem>
+                    <SelectItem value="tech-solutions-inc">Компания Tech Solutions Inc.</SelectItem>
+                    <SelectItem value="global-finance-corp">Глобальная финансовая корпорация</SelectItem>
+                    <SelectItem value="internal">Внутренний</SelectItem>
+                    <SelectItem value="hr-department">Отдел кадров</SelectItem>
+                    <SelectItem value="cloud-systems-ltd">ООО "Облачные системы"</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="assigned">Assigned To</Label>
+                <Label htmlFor="assigned">Назначенный Для</Label>
                 <Select value={assignedTo} onValueChange={setAssignedTo} required>
                   <SelectTrigger id="assigned">
-                    <SelectValue placeholder="Assign to" />
+                    <SelectValue placeholder="Назначенный Для" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="alex-johnson">Alex Johnson</SelectItem>
-                    <SelectItem value="sarah-williams">Sarah Williams</SelectItem>
-                    <SelectItem value="michael-chen">Michael Chen</SelectItem>
-                    <SelectItem value="emma-davis">Emma Davis</SelectItem>
-                    <SelectItem value="robert-smith">Robert Smith</SelectItem>
-                    <SelectItem value="jennifer-lee">Jennifer Lee</SelectItem>
-                    <SelectItem value="david-miller">David Miller</SelectItem>
-                    <SelectItem value="lisa-garcia">Lisa Garcia</SelectItem>
+                    <SelectItem value="alex-johnson">Асанов Усон</SelectItem>
+                    <SelectItem value="sarah-williams">Сара Кубатов</SelectItem>
+                    <SelectItem value="michael-chen">Дубай Кимсанов</SelectItem>
+                    <SelectItem value="emma-davis">Кубат Арген уулу</SelectItem>
+                    <SelectItem value="robert-smith">Роберт Иванов</SelectItem>
+                    <SelectItem value="jennifer-lee">Жьюнифер Ли</SelectItem>
+                    <SelectItem value="david-miller">Давид Миллер</SelectItem>
+                    <SelectItem value="lisa-garcia">Лиса Гарсия</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="description">Description</Label>
+              <Label htmlFor="description">Описание</Label>
               <Textarea 
                 id="description" 
-                placeholder="Enter document description"
+                placeholder="Введите описание документа"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={4}
@@ -166,7 +166,7 @@ export default function CreateDocumentPage() {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="files">Attachments</Label>
+              <Label htmlFor="files">Вложения</Label>
               <div className="flex items-center gap-2">
                 <Input 
                   id="files" 
@@ -184,7 +184,7 @@ export default function CreateDocumentPage() {
                         <FileText className="h-4 w-4 text-muted-foreground" />
                         <span className="text-sm">{file.name}</span>
                       </div>
-                      <Button 
+                      <Button
                         type="button"
                         variant="ghost" 
                         size="sm" 
@@ -211,12 +211,12 @@ export default function CreateDocumentPage() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Saving...
+                  Сохронение...
                 </span>
               ) : (
                 <span className="flex items-center">
                   <Save className="mr-2 h-4 w-4" />
-                  Save as Draft
+                  Сохранить как черновик
                 </span>
               )}
             </Button>
@@ -233,12 +233,12 @@ export default function CreateDocumentPage() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      Submitting...
+                      Отправка...
                     </span>
                   ) : (
                     <span className="flex items-center">
                       <SendHorizontal className="mr-2 h-4 w-4" />
-                      Submit Document
+                      Отправить документ
                     </span>
                   )}
                 </Button>

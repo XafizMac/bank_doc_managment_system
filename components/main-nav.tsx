@@ -18,7 +18,7 @@ import {
 import { ModeToggle } from "@/components/mode-toggle";
 
 // Mock authentication - in real app would use a proper auth system
-const isAuthenticated = false;
+const isAuthenticated = true;
 
 export function MainNav() {
   const pathname = usePathname();
