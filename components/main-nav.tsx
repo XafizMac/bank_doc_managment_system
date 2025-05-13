@@ -26,13 +26,13 @@ export function MainNav() {
 
   const mainNavItems = [
     {
-      title: "Dashboard",
+      title: "Панель",
       href: "/",
       icon: <Home className="h-4 w-4 mr-2" />,
       requiresAuth: true
     },
     {
-      title: "Documents",
+      title: "Документы",
       href: "/documents",
       icon: <FileText className="h-4 w-4 mr-2" />,
       requiresAuth: true,
@@ -44,31 +44,31 @@ export function MainNav() {
       ]
     },
     {
-      title: "Clients",
+      title: "Клиенты",
       href: "/clients",
       icon: <Users className="h-4 w-4 mr-2" />,
       requiresAuth: true
     },
     {
-      title: "Branches",
+      title: "Ветви",
       href: "/branches",
       icon: <Building2 className="h-4 w-4 mr-2" />,
       requiresAuth: true
     },
     {
-      title: "Users",
+      title: "Пользователи",
       href: "/users",
       icon: <User className="h-4 w-4 mr-2" />,
       requiresAuth: true
     },
     {
-      title: "Reports",
+      title: "Жалобы",
       href: "/reports",
       icon: <BarChart3 className="h-4 w-4 mr-2" />,
       requiresAuth: true
     },
     {
-      title: "Login",
+      title: "Логин",
       href: "/login",
       icon: <LogIn className="h-4 w-4 mr-2" />,
       requiresAuth: false
@@ -76,7 +76,7 @@ export function MainNav() {
   ];
 
   const filteredNavItems = mainNavItems.filter(item => 
-    !item.requiresAuth || (item.requiresAuth && isAuthenticated)
+    item.requiresAuth || (item.requiresAuth && isAuthenticated)
   );
 
   const toggleMobileMenu = () => {
