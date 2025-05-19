@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'BankDocs - Электронный документооборот',
-  description: 'Secure document management system for banking',
+  description: 'Безопасная система управления документооборотом для банковской деятельности',
 };
 
 export default function RootLayout({

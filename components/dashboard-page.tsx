@@ -35,9 +35,9 @@ import {
 } from "recharts";
 import { RecentActivity } from "@/components/recent-activity";
 import Link from "next/link";
+import { useStore } from "@/store/store";
 
 // Mock authentication - in real app would use a proper auth system
-const isAuthenticated = false;
 
 const documentStats = [
   { name: "Pending", value: 8, color: "#F59E0B" },
@@ -56,7 +56,9 @@ const monthlyDocuments = [
 ];
 
 export function DashboardPage() {
-  if (isAuthenticated) {
+  const isAuthenticated = useStore((state) => state.isAuthenticated);
+
+  if (!isAuthenticated) {
     return <LandingPage />;
   }
 
